@@ -1,0 +1,8 @@
+---
+layout: post
+title: Blog 0
+date: '2020-09-01 12:52:00 -0700'
+categories: blog 
+---
+
+what is this mess
