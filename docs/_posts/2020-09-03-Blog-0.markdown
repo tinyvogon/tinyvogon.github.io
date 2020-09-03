@@ -7,7 +7,7 @@ categories: blog
 
 Hello, this is Captain Procrastination speaking. Testing picture and code.
 
-![Wholesome-af](/assets/meme.jpg)
+![Wholesome-af](/assets/meme.jpg){:class="img-responsive"}
 {% highlight python %}
 print("Yes No Maybe")
 {% endhighlight %}
