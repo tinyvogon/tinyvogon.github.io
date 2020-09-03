@@ -1,0 +1,14 @@
+---
+layout: post 
+title:  "Blog 0"
+date:   2020-09-03 11:34:18 -0700
+categories: blog
+---
+
+Hello, this is Captain Procrastination speaking. Testing picture and code.
+[!Wholesome-af](/assets/meme.jpg)
+{% highlight python %}
+print("Yes No Maybe")
+{% endhighlight %}
+
+@@@
