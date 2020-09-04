@@ -1,15 +1,28 @@
 ---
 layout: post 
-title:  "Blog 0"
-date:   2020-09-03 11:34:18 -0700
+title:  "Blog 0 - Require TLS for RDP Connection"
+date:   2020-09-03 18:34:18 -0700
 categories: blog
 ---
 
-Hello, this is Captain Procrastination speaking. Testing picture and code.
+Remote Desktop Protocol (RDP) is a widely used tool in system administration in order to provide remote connection to operation machines. However, Microsoft admitted that there was an oversight in developing the tool, for that the default security level of the application is not sufficiently encrypted. Thus, this article will give instructions on how to set the security level of RDP to TLS/SSL encryption.
 
-![Wholesome-af](/assets/meme.jpg){:class="img-responsive"}
-{% highlight python %}
-print("Yes No Maybe")
-{% endhighlight %}
+`Step 1:` Open Microsoft Management Console
+Run mmc.exe from the `Run` application
 
-@@@
+`Step 2:` Add an edit to Group Policy
+Go to File > Add/Remove Snap in. Find Group Policy Object Editor > Add. Another window will pop up asking if you want to name the console window. Leave the default, click Finish & OK.
+
+![Step2](/assets/blog0-1.png){:class="img-responsive"}
+
+`Step 3:` Open RDP policy settings
+In Console Root, click Local Computer Policy > Administrative Templates > Windows Component > Remote Desktop Services > Remote Desktop Session Host > Security
+
+![Step3](/assets/blog0-2.png){:class="img-responsive"}
+
+`Step 4:` Right click on "Require use of specific security layer for remote(RDP) connections", click edit. Click Enabled, then choose SSL in the Security Layer dropdown. Click Apply and OK
+
+![Step4](/assets/blog0-3.png){:class="img-responsive"}
+
+Voila! Now the encryption level of the RDP connection has been forced to be TLS/SSL level, requiring the use of TLS to authenticate the RDP session or the connection will fail. 
+
