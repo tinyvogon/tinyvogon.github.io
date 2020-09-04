@@ -21,14 +21,14 @@
 title: Time is an illusion. Lunchtime doubly so.
 email: hoan.huynh.865@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Blog for CIT 480/1 Senior Design Project. My name is Hoan Huynh and I'm Captain Procrastination.
+  Blog for CIT 480 Senior Project. My name is Hoan Huynh and welcome to ProcrasinationVille.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  tinyvogon
 
 # Build settings
-theme: jekyll-theme-hacker
+theme: minima
 plugins:
   - jekyll-feed
 
