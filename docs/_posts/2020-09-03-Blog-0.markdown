@@ -8,19 +8,24 @@ categories: blog
 Remote Desktop Protocol (RDP) is a widely used tool in system administration in order to provide remote connection to operation machines. However, Microsoft admitted that there was an oversight in developing the tool, for that the default security level of the application is not sufficiently encrypted. Thus, this article will give instructions on how to set the security level of RDP to TLS/SSL encryption.
 
 `Step 1:` Open Microsoft Management Console
+
 Run mmc.exe from the `Run` application
 
 `Step 2:` Add an edit to Group Policy
+
 Go to File > Add/Remove Snap in. Find Group Policy Object Editor > Add. Another window will pop up asking if you want to name the console window. Leave the default, click Finish & OK.
 
 ![Step2](/assets/blog0-1.PNG){:class="img-responsive"}
 
 `Step 3:` Open RDP policy settings
+
 In Console Root, click Local Computer Policy > Administrative Templates > Windows Component > Remote Desktop Services > Remote Desktop Session Host > Security
 
 ![Step3](/assets/blog0-2.PNG){:class="img-responsive"}
 
-`Step 4:` Right click on "Require use of specific security layer for remote(RDP) connections", click edit. Click Enabled, then choose SSL in the Security Layer dropdown. Click Apply and OK
+`Step 4:` Edit required security layer 
+
+Right click on "Require use of specific security layer for remote(RDP) connections", click edit. Click Enabled, then choose SSL in the Security Layer dropdown. Click Apply and OK
 
 ![Step4](/assets/blog0-3.png){:class="img-responsive"}
 
