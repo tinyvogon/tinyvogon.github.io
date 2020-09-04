@@ -1,6 +1,6 @@
 ---
 layout: post 
-title:  "Blog 0 - Require TLS for RDP Connection"
+title:  "Blog 0"
 date:   2020-09-03 18:34:18 -0700
 categories: blog
 ---
