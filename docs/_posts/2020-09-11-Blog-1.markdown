@@ -1,0 +1,36 @@
+---
+layout: post 
+title:  "Blog 1 - Install AWS CLI on Ubuntu"
+date:   2020-09-11 18:34:18 -0700
+categories: blog
+---
+
+When interacting with AWS, most people are used to their browser console which is extremely intuitive and straightforward. However, some of us who are more partial to the geeky side of things may prefer AWS CLI - the command line interface tool that can access AWS' public APIs to provide interactions with the services available on AWS. This article is going to explain how you can install AWS CLI on your Ubuntu shell. 
+
+`Step 1: ` Update your package repository cache
+{% highlight ruby %}
+sudo apt-get update
+{% endhighlight %}
+
+`Step 2: ` Install AWS CLI
+{% highlight ruby %}
+sudo apt-get install awscli
+{% endhighlight %}
+Press y to finish the installation.
+
+After you install AWS CLI, you can check if it's installed and its version by using this command:
+{% highlight ruby %}
+aws --version
+{% endhighlight %}
+
+Certainly, you also need to configure the service for it to work:
+{% highlight ruby %}
+aws configure
+{% endhighlight %}
+This command will prompt you to enter your AWS account's Access Keys and Secret Keys, both of which can be found in IAM > User > click on the IAM user you intend to use for AWS CLI > Security Credential > Create access keys if you haven't done it before. 
+After that enter your region and your preferred format for the output (e.g text, json).
+
+
+Now AWS CLI is installed and configured, feel free to go crazy with it!
+
+
