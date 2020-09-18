@@ -14,7 +14,7 @@ Before you start the process, make sure you have the .ppk file which contains th
 
 **Step 2:** In the _Session_ tab, specify the destination you want to SSH into by inputting the public IP address of the EC2 instance. Make sure that the port value is 22 and the connection type is SSH.
 
-![Step2](/assets/blog2-3.PNG){:class="img-responsive"}
+![Step2](/assets/blog2-2.PNG){:class="img-responsive"}
 
 
 **Step 3:** Under the _Connection_ tab, click on **Data** and proceed to put in the master user of the EC2 instance. Depending on the AMI type, the admin user will be different. Refer to the [first part of this page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html) to see which username your Linux instance uses.
