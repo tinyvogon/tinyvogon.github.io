@@ -1,0 +1,36 @@
+---
+layout: post 
+title:  "Blog 2 - SSH to your AWS EC2 Linux instance with Putty"
+date:   2020-09-17 18:34:18 -0700
+categories: blog
+---
+
+AWS EC2 allows you to make your own virtual machines that are hosted on AWS clouds, be it Windows or Linux machines. Windows users can use Remote Desktop Program (RDP) to connect to the Windows instances, and Putty to connect to the Linux instances that they have on EC2. This article will explain how to use Putty to SSH to your AWS EC2 Linux instances.
+
+Before you start the process, make sure you have the .ppk file which contains the private key of the key pair you obtained when you first created the EC2 instance. 
+
+**Step 1:**  Start PuTTy (you can download the program [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html))
+
+
+**Step 2:** In the _Session_ tab, specify the destination you want to SSH into by inputting the public IP address of the EC2 instance. Make sure that the port value is 22 and the connection type is SSH.
+
+![Step2](/assets/blog2-3.PNG){:class="img-responsive"}
+
+
+**Step 3:** Under the _Connection_ tab, click on **Data** and proceed to put in the master user of the EC2 instance. Depending on the AMI type, the admin user will be different. Refer to the [first part of this page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html) to see which username your Linux instance uses.
+
+![Step3](/assets/blog2-3.PNG){:class="img-responsive"}
+
+
+**Step 4:** Under the _Connection_ tab, click on the plus sign next to _SSH_, then click on **Auth**. Browse your file system to find the .ppk file that contains the private key of the Linux instance. 
+
+![Step4](/assets/blog2-4.PNG){:class="img-responsive"}
+
+
+**Step 5:** Afterward, go back to _Session_ and enter a unique name in the **Saved Sessions** box, click _Save_ so you can store this session and won't need to go through all of these steps next time you want to connect to the Linux instance. 
+
+
+![Step5](/assets/blog2-5.PNG){:class="img-responsive"}
+
+
+**Step 6:** Click Open and voila! You have connected to the EC2 Linux instance!
