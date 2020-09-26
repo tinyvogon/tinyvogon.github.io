@@ -1,0 +1,26 @@
+---
+layout: post 
+title:  "Blog 3 - Use cron to automate Certbot on Centos 7"
+date:   2020-09-25 18:34:18 -0700
+categories: blog
+---
+
+Certbot created by Let's Encrypt certificate authority is a great tool to make your site encrypted and certificated that requires minimal human intervention and, fortunately, is **free**. However, Certbot generated certficiates has a short expiry date of 90 days. To renew the certificate, you can either run the certbot command manually again or you can set up a cron job to carry the task automatically for you. This article will instruct you on how to set up the cron job for this automation task.
+
+**Step 1:** Use a text editor to open `/etc/crontab`, in my case it's vim.
+
+`sudo vi /etc/crontab`
+
+
+**Step 2:** Add a line instructing the crontab, similar to this:
+
+`25     3,15        *       *       *       root        certbot renew --no-self-upgrade`
+
+This line schedules the command `certbot renew --no-self-upgrade` to run at 3:25 and 15:25 every day. You can schedule it to other times depending on your preferences, but the developers of Certbot recommend the command to run twice daily in order to detect compromised certificates and replace them. The `renew` subcommand will check current certificates and renew those that are about to be expired. The `--no-self-upgrade` flag will ensure Certbot not to upgrade itself automatically without your acknowledgement. 
+
+**Step 3:** Restart the cron daemon:
+
+`sudo systemcyl restart crond`
+
+
+After the cron daemon is restarted, the cron job will be carried out at scheduled times and take care of renewing Certbot certificates for you from then on.
