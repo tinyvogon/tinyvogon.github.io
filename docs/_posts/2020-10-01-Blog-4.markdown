@@ -1,0 +1,29 @@
+---
+layout: post 
+title:  "Blog 4 - Create the Dockerfile for Lab 2"
+date:   2020-10-01 18:34:18 -0700
+categories: blog
+---
+
+In this blog I will explain the details in the Dockerfile I created to fulfill Lab 2's objectives. 
+
+
+**OBJECTIVE:** Create a Dockerfile that runs apache2, php, etc. and hosts the Afflinity website from CSUN MetaLab. 
+
+**OVERVIEW:** 
+
+
+**EXPLANATIONS:**
+{% highlight bash %}
+FROM ubuntu:18.04 
+#--> creates a docker image from the base image of ubuntu:18.04. 
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+#--> makes /var/www/html/public the root directory of apache.
+
+
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+#--> sets the timezone of the container to PST/Los Angeles timezone
+{% endhighlight %}
+
