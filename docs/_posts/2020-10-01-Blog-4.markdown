@@ -8,9 +8,19 @@ categories: blog
 In this blog I will explain the details in the Dockerfile I created to fulfill Lab 2's objectives. 
 
 
-**OBJECTIVE:** Create a Dockerfile that runs apache2, php, etc. and hosts the Afflinity website from CSUN MetaLab. 
+**OBJECTIVE:** Create a Dockerfile that runs apache2, php, etc. and hosts the Afflinity website from CSUN TechLab. 
 
-**OVERVIEW:** 
+**OVERVIEW:** A fully configured custom dockerfile will launch with all desired features installed and ready to go. In my case, the dockerfile for lab2 is named lab2-img, and I build its image via this command in the folder it resides:
+`docker build -t lab2-img /bin/bash`
+After the image is built, we can log in to the container with:
+`docker run -it lab2-img /bin/bash`
+or 
+`docker run -rm -it lab2-img /bin/bash` if you want the container to just run one time and then cease to exist.
+
+After you get into the container, start the apache service with:
+`service apache2 start`
+Then you can curl the Afflinity website with:
+`curl localhost`
 
 
 **EXPLANATIONS:**
@@ -21,9 +31,47 @@ FROM ubuntu:18.04
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 #--> makes /var/www/html/public the root directory of apache.
 
-
 ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #--> sets the timezone of the container to PST/Los Angeles timezone
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y git \
+    zip \
+    curl \
+    apache2 \
+    mysql-client 
+RUN apt-get install -y php \
+    libapache2-mod-php \
+    php-mysql \
+    php7.2-cli \
+    php7.2-curl \
+    php7.2-gd \
+    php7.2-mbstring \
+    php7.2-mysql \
+    php7.2-xml \
+    php-xml
+#--> installs *apache2, php,* other necessary packages and their dependencies
+
+RUN sed -ri -e 's#DirectoryIndex index.html index.cgi index.pl index.php#DirectoryIndex index.php index.html index.cgi index.pl#' /etc/apache2/mods-enabled/dir.conf
+#--> edits the `etc/apache2/mods-enabled/dir.conf` file so that **index.php** is the 1st of the list of **DirectoryIndex**
+
+WORKDIR /var/www/html
+RUN git clone https://github.com/csuntechlab/affinity.git
+RUN chown -hR www-data:www-data affinity/
+RUN ln -s /var/www/html/affinity/public public
+#--> moves into **var/www/html** and clone the **Afflinity** repository to the folder
+
+RUN sed -ri -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#' /etc/apache2/sites-available/000-default.conf
+RUN sed -ri -e 's#Require all denied#Require all granted#' /etc/apache2/apache2.conf
+RUN sed -ri -e 's#Directory /var/www/#Directory /var/www/html/public#' /etc/apache2/apache2.conf
+#--> edits **/etc/apache2/sites-available/000-default.conf** and **/etc/apache2/apache2.conf**so that /var/www/html/public is the root directory of apache2
+
+RUN service apache2 start
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+WORKDIR /var/www/html/affinity
+RUN composer install
+#-->installs composer 
 {% endhighlight %}
 
