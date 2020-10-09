@@ -8,7 +8,7 @@ categories: blog
 
 The CSS Box Model contains 4 parts: Content, Padding, Border, Margin.
 
-![boxmodel](/assets/boxmodel.PNG){:class="img-responsive"}
+![boxmodel](/assets/boxmodel.png){:class="img-responsive"}
 
 This illustration shows how different these 4 parts of the box model are. 
 **Content:** the text or image that is the centre point of the box.
