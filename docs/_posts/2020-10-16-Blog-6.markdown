@@ -1,0 +1,27 @@
+---
+layout: post 
+title:  "Blog 6 - What is the difference between Rebooting and Stop/Start an AWS EC2 instance? "
+date:   2020-10-16 18:34:18 -0700
+categories: blog
+---
+
+![ec2reboot](/assets/blog6.png){:class="img-responsive"}
+*Years of thinking Reboot is just a concisely roundabout way to Stop & Start has finally come and collected a hefty sum from me...*
+
+
+Last week during a debugging session, my supervisor told me to reboot an EC2 Windows instance running a faulty state, to which I happily obliged. I headed to the AWS EC2 console, right clicked on the problematic instance, selected **Instance State** then **Stop Instance**. I waited 2 minutes for the instance to completely Stop, then clicked **Start Instance**, waiting 3 more minutes for the Status Checks to complete. Now you may wonder why I did that instead of just clicking *Reboot*. Well, you see, *"Reboot is fine and dandy, but it doesn't show the progress of the Status Checks actually being carried out.. Those little green checkmarks won't go from green to gray to green again just like Stop/Start does. Boring!'* was my thought process.
+
+
+When I logged in to the Windows instance again, a drive vanished into thin air. Coincidentally, the drive was a temporary drive and it hosted all of our company's local test websites. 
+
+
+It was that day when I learned that temporary drives would go away after you do a hard stop & start an EC2 instance, and the fact that Reboot and Stop/Start are two completely different things in Amazon Web Services environment.
+
+
+In AWS, **Reboot** is the equivalent of restart or shut down and turn it back on for your physical computer -- everything (physical, logical) should remain the same. Hard **Stop/Start**, though, will give up the physical hard your instance is using to the free world, and take up new ones when it's started again. Thus, some properties of your instance might be changed if you choose to do a hard Stop/Start the instance, for example internal IP address & external IP address (for some cases), ephemeral storage (which I learned the hard way), etc.
+
+
+
+
+I didn't get scolded too much because the drive was somewhat easily replicated, and my supervisor was also unaware of the difference between Reboot vs. Stop/Start just like me. However, it remained a lesson for me to properly research about tools and functions of services before assuming they would be the same as other technologies I'm accustomed to, and that I shouldn't just choose to Stop/Start rather than Reboot because I like seeing the little green checks of validation....
+
