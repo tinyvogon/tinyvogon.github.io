@@ -14,7 +14,7 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 
 
 **Port Number:** 22
-*Secure Shell/SSH for secure remote access *
+*Secure Shell/SSH for secure remote access*
 
 
 **Port Number:** 23
