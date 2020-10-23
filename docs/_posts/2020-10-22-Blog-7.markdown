@@ -10,40 +10,50 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 
 
 **Port Number:** 20-21
+
 *File transfer protocol/FTP for data transfer*
 
 
 **Port Number:** 22
+
 *Secure Shell/SSH for secure remote access*
 
 
 **Port Number:** 23
+
 *Telnet -- unencrypted remote login service*
 
 
 **Port Number:** 25
+
 *Simple Mail Transfer Protocol/ SMTP for email routing*
 
 
 **Port Number:** 53
+
 *Domain Name System/DNS service for domain/IP lookup*
 
 
 **Port Number:** 80
+
 *Hypertest Transfer Protocol/HTTP for World Wide Web*
 
 
 **Port Number:** 123
+
 *Network Time Protocol for time synchronization*
 
 
 **Port Number:** 143
+
 *Internet Message Access Protocol/IMAP for managing digital mails*
 
 
 **Port Number:** 161
+
 *Simple Network Management Protocol/SNMP for communicating logging and management information with external monitoring applications*
 
 
 **Port Number:** 443
+
 *HTTP Sercure/HTTPS for secure World Wide Web via TLS/SSL*
