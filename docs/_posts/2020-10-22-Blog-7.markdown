@@ -6,7 +6,7 @@ categories: blog
 ---
 
 
-A computer can have up to 655535 port numbers, but most of them are unassigned and you can use as you please. Only the port numbers from 0 to 1023 are reserved for certain services that are vital to the operating process of a computer. As IT workers and professionals, we should be familiar with a lot of common port numbers in order to quickly identify an IT problem and come up with an approriate solution for it. Certainly, we should all know iconic ones like 80 for HTTP, 22 for SSH and the likes, but there are a few more port number to take notice of:
+A computer can have up to 655535 port numbers, but most of them are unassigned and you can use as you're pleased. Only the port numbers from 0 to 1023 are reserved for certain services that are vital to the operating process of a computer. As IT workers and professionals, we should be familiar with a lot of common port numbers in order to quickly identify an IT problem and come up with an approriate solution for it. Certainly, we should all know iconic ones like 80 for HTTP, 22 for SSH and the likes, but there are a few more port numbers to take notice of:
 
 
 **Port Number:** 20-21
@@ -14,9 +14,13 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 *File transfer protocol/FTP for data transfer*
 
 
+
+
 **Port Number:** 22
 
 *Secure Shell/SSH for secure remote access*
+
+
 
 
 **Port Number:** 23
@@ -24,9 +28,13 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 *Telnet -- unencrypted remote login service*
 
 
+
+
 **Port Number:** 25
 
 *Simple Mail Transfer Protocol/ SMTP for email routing*
+
+
 
 
 **Port Number:** 53
@@ -34,9 +42,13 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 *Domain Name System/DNS service for domain/IP lookup*
 
 
+
+
 **Port Number:** 80
 
 *Hypertest Transfer Protocol/HTTP for World Wide Web*
+
+
 
 
 **Port Number:** 123
@@ -44,14 +56,20 @@ A computer can have up to 655535 port numbers, but most of them are unassigned a
 *Network Time Protocol for time synchronization*
 
 
+
+
 **Port Number:** 143
 
 *Internet Message Access Protocol/IMAP for managing digital mails*
 
 
+
+
 **Port Number:** 161
 
 *Simple Network Management Protocol/SNMP for communicating logging and management information with external monitoring applications*
+
+
 
 
 **Port Number:** 443
