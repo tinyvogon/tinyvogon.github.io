@@ -1,0 +1,44 @@
+---
+layout: post 
+title:  "Blog 8 - IAM role allows EC2 full access to S3 buckets"
+date:   2020-10-28 18:34:18 -0700
+categories: blog
+---
+
+
+There are a few situations when you need your EC2 instance to access your S3 buckets. In order to grant that access to your EC2, you have to create an IAM role with approriate policies and assign it to your EC2 instance.
+
+**Create The IAM Role**
+![blog8-1](/assets/blog8-1.png){:class="img-responsive"}
+First, go to the Identity and Access Management(IAM) dashboard, and click on Roles at the left panel. Then, click Create Role button to create a new role.
+
+
+![blog8-2](/assets/blog8-2.png){:class="img-responsive"}
+In the Create Role window, choose AWS service as the trusted entity and EC2 as the use case. Click next.
+
+
+![blog8-3](/assets/blog8-3.png){:class="img-responsive"}
+Next, you have to choose which policy you want to attach to the role. For this role, we want to search and choose the AmazonS3FullAccess, which will grant full access to the S3 buckets to any service it's assigned to.
+Click Next, and the Tags window will appear. It's optional to put a tag on the role, but you can assign a tag for naming or description purpose. Click Next to Review.
+
+
+![blog8-4](/assets/blog8-4.png){:class="img-responsive"}
+On the Review window, input the name of the role, for which I use "S3Access". Role description is optional, but it helps you remember the main purpose of the roles so that you don't get confused when a lot of roles are made. Click Create Role.
+
+
+
+**Assign IAM Role to EC2 Instance**
+
+There are 2 ways to assign an IAM role to an instance from the console. You can assign the role when you first create the instance -- the configuration will ask if you want the instance to have an IAM role. However, don't fret if you skip that step in instance creation. You can still attach the role when the instance has been put into use. You just need to follow these steps:
+
+
+![blog8-5](/assets/blog8-5.png){:class="img-responsive"}
+On the EC2 dashboard, click Instances to see all of your EC2 instances. Right-click on the instance you want to assign the IAM role to, and click Security. Then, click on Modify IAM role.
+
+
+![blog8-6](/assets/blog8-6.png){:class="img-responsive"}
+Now, you can choose whichever role you want to assign to the instance. In my case, I will choose the S3Access role I just created above to grant the instance the access to my S3 buckets. Click Save and the IAM role has been attached to your instance.
+
+
+
+
