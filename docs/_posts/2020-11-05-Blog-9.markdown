@@ -1,0 +1,48 @@
+---
+layout: post 
+title:  "Blog 9 - Regain access to a locked Microsoft SQL Server"
+date:   2020-10-28 18:34:18 -0700
+categories: blog
+---
+
+
+The other day I needed to use the Microsoft SQL Server Management Studio for the first time since my company gave me my work laptop, and I found out they didn't do a full reset every time the laptops are cycled to newcomers: I was denied access to the database because it apparently still belongs to the ex-owner.
+
+
+![blog9-1](/assets/blog9-1.PNG){:class="img-responsive"}
+
+
+So, I set out to fix this problem without bothering the IT guy, and I have found a great way to overcome this (surprsingly) common issue.  Here are the steps to regain access to a Microsoft SQL server when you don't have access to a sysadmin database account, but are an administrator of the computer. 
+
+
+
+1. Search for `SQL Server Configuration Manager` in the Search bar and click on the result. 
+
+
+2. When the application window pops up, select SQL Server Services on the left panel. Make sure `SQL Server Agent` is stopped. Right-click on the SQL server you want to access, or  `SQL Server (MSSQL Server)` for the default one, and select **Properties**. 
+
+
+3. Under the `Startup Parameter` tab, type `-m` in **Specify a startup parameter** box and click **Add**. This will force the SQL server to limit the connections to the database and switch to *single-user* mode. Click **OK** and restart the database you want to access. 
+
+![blog9-2](/assets/blog9-2.PNG){:class="img-responsive"}
+
+
+4. Run Microsot SQL Server Management Studio as an administrator. Proceed to connect to the database with Windows Authentication and it will let you log in this time. 
+
+
+5. Expand **Security**, click on **Logins** and look for your username (If not found, you can create a new login using your username). Go to the **Server Roles** page in the login window, and click **sysadmin** to give your account the system administrator permission. Click **OK** to save the setting.
+
+
+![blog9-3](/assets/blog9-3.PNG){:class="img-responsive"}
+
+
+
+6. Now that your username can access the SQL server, all you have to do is switch the server back to the multiuser mode. Go back to `SQL Server Configuration Manager`, click on `SQL Server Services` on the left panel and right-click on the SQL Server instance you modified earlier to go to its **Properties** page. 
+
+7. Under `Startup Parameter`, click on `-m` line and select **Remove**. Click **Ok** and restart the SQL server. 
+
+
+![blog9-4](/assets/blog9-4.PNG){:class="img-responsive"}
+
+
+Voila, now you can access the SQL server instance that you were previously locked out of with your own Windows login, and you don't even have to run Microsoft SQL Server Management Studio as an administrator since you already gave yourself the sysadmin server role.
