@@ -1,0 +1,48 @@
+---
+layout: post 
+title:  "Blog 10 - Import Access database to Microsoft SQL Server"
+date:   2020-11-12 18:34:18 -0700
+categories: blog
+---
+
+
+Although Access is considered outdated these days, a lot of databases, mostly legacy, are written for Access and thus, requiring a method to be imported to other newer, more advanced database management systems. This blog post will describe how to import database from Microsoft Access to Microsoft SQL Server Management Studio. 
+
+
+
+1. The first step is to make sure that the Access database is of the `.mdb` format. Note that databases that are made in or after Access 2007 will be in the `.accdb` format, which you will need to convert to the `.mdb` format in order to import to SQL Server. To do that, open the database in Access. Go to **File->Save As**, and choose the **Access 2002-2003 Database(*.mdb)** option. Click **Save As** and save it to your local folder.
+
+        ![blog10-0](/assets/blog10-0.PNG){:class="img-responsive"}
+
+
+2.  Since we want to import a whole database, we are going to create a new empty database in Microsoft SQL Server. Open SL Server Management Studio, and right-click **Database** in the Object Explorer pane and choose **New Database..** Give it a name and configure the settings to your liking. Click **Ok**.
+
+        ![blog10-1](/assets/blog10-1.PNG){:class="img-responsive"}
+
+
+3. After we create a new database, right-click on it and choose **Tasks**, then choose **Import Data**.
+
+        ![blog10-2](/assets/blog10-2.png){:class="img-responsive"}
+
+
+4. On the **Data Source** box, choose **Microsoft Access(Microsoft Jet Database Engine)**. Then *Browse* to select the Access database in `.mdb` format that we want to import to SQL Server. Click **Next**.
+
+        ![blog10-3](/assets/blog10-3.PNG){:class="img-responsive"}
+
+
+5. On the next dialog window, choose **SQL Server Native Client** for **Destination**. Then you should confirm the **Server Name** is your database instance name, and choose the new empty database you just created for **Database**. Keep the **Use Window Authentication** checked. Click **Next**.
+
+        ![blog10-4](/assets/blog10-4.jpg){:class="img-responsive"}
+
+6. You can specify whether to copy one or more tables from the source database, or use a specific query to manipulate the transfer operation. Since I want to copy all the existing data, I chose to select all the tables from the Access database to the SQL database. Click **Next**.
+
+        ![blog10-5](/assets/blog10-5.png){:class="img-responsive"}
+
+7. Make sure **Run Immediately** is checked on the next dialog window, click **Next** and then **Finish**. You will see the progress of the transfer operation and get a message saying **The execution was successful** after it's done. Click **Close**.
+
+        ![blog10-6](/assets/blog10-6.PNG){:class="img-responsive"}
+
+
+Now that you have imported the Access database to SQL Server Management Studio, you can manipulate and manage your database in SQL.
+
+        ![blog10-7](/assets/blog10-7.PNG){:class="img-responsive"}
