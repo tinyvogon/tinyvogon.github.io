@@ -17,32 +17,32 @@ Although Access is considered outdated these days, a lot of databases, mostly le
 
 2.  Since we want to import a whole database, we are going to create a new empty database in Microsoft SQL Server. Open SL Server Management Studio, and right-click **Database** in the Object Explorer pane and choose **New Database..** Give it a name and configure the settings to your liking. Click **Ok**.
 
-        ![blog10-1](/assets/blog10-1.PNG){:class="img-responsive"}
+    ![blog10-1](/assets/blog10-1.PNG){:class="img-responsive"}
 
 
 3. After we create a new database, right-click on it and choose **Tasks**, then choose **Import Data**.
 
-        ![blog10-2](/assets/blog10-2.png){:class="img-responsive"}
+    ![blog10-2](/assets/blog10-2.png){:class="img-responsive"}
 
 
 4. On the **Data Source** box, choose **Microsoft Access(Microsoft Jet Database Engine)**. Then *Browse* to select the Access database in `.mdb` format that we want to import to SQL Server. Click **Next**.
 
-        ![blog10-3](/assets/blog10-3.PNG){:class="img-responsive"}
+    ![blog10-3](/assets/blog10-3.PNG){:class="img-responsive"}
 
 
 5. On the next dialog window, choose **SQL Server Native Client** for **Destination**. Then you should confirm the **Server Name** is your database instance name, and choose the new empty database you just created for **Database**. Keep the **Use Window Authentication** checked. Click **Next**.
 
-        ![blog10-4](/assets/blog10-4.jpg){:class="img-responsive"}
+    ![blog10-4](/assets/blog10-4.jpg){:class="img-responsive"}
 
 6. You can specify whether to copy one or more tables from the source database, or use a specific query to manipulate the transfer operation. Since I want to copy all the existing data, I chose to select all the tables from the Access database to the SQL database. Click **Next**.
 
-        ![blog10-5](/assets/blog10-5.png){:class="img-responsive"}
+    ![blog10-5](/assets/blog10-5.png){:class="img-responsive"}
 
 7. Make sure **Run Immediately** is checked on the next dialog window, click **Next** and then **Finish**. You will see the progress of the transfer operation and get a message saying **The execution was successful** after it's done. Click **Close**.
 
-        ![blog10-6](/assets/blog10-6.PNG){:class="img-responsive"}
+    ![blog10-6](/assets/blog10-6.PNG){:class="img-responsive"}
 
 
 Now that you have imported the Access database to SQL Server Management Studio, you can manipulate and manage your database in SQL.
 
-        ![blog10-7](/assets/blog10-7.PNG){:class="img-responsive"}
+    ![blog10-7](/assets/blog10-7.PNG){:class="img-responsive"}
