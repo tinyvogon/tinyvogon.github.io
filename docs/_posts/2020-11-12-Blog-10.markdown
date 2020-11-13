@@ -12,7 +12,7 @@ Although Access is considered outdated these days, a lot of databases, mostly le
 
 1. The first step is to make sure that the Access database is of the `.mdb` format. Note that databases that are made in or after Access 2007 will be in the `.accdb` format, which you will need to convert to the `.mdb` format in order to import to SQL Server. To do that, open the database in Access. Go to **File->Save As**, and choose the **Access 2002-2003 Database(*.mdb)** option. Click **Save As** and save it to your local folder.
 
-        ![blog10-0](/assets/blog10-0.PNG){:class="img-responsive"}
+    ![blog10-0](/assets/blog10-0.PNG){:class="img-responsive"}
 
 
 2.  Since we want to import a whole database, we are going to create a new empty database in Microsoft SQL Server. Open SL Server Management Studio, and right-click **Database** in the Object Explorer pane and choose **New Database..** Give it a name and configure the settings to your liking. Click **Ok**.
@@ -45,4 +45,4 @@ Although Access is considered outdated these days, a lot of databases, mostly le
 
 Now that you have imported the Access database to SQL Server Management Studio, you can manipulate and manage your database in SQL.
 
-    ![blog10-7](/assets/blog10-7.PNG){:class="img-responsive"}
+![blog10-7](/assets/blog10-7.PNG){:class="img-responsive"}
