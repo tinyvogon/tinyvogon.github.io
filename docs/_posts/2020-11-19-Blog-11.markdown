@@ -1,0 +1,36 @@
+---
+layout: post 
+title:  "Blog 11 - Convert .pem to .ppk private key for Putty SSH"
+date:   2020-11-19 18:34:18 -0700
+categories: blog
+---
+
+
+
+To connect to AWS EC2 linux instance from Windows machines, we can use Putty to ssh to the instance. However, in order to connect, we need a pair of public-private key that allows us the access to the instance. When you create an EC2 linux instance, AWS asks you to download and keep your private key so that you can connect to the instance later on. The problem is the private key AWS gives is in `.pem` format, and we want to convert it to `.ppk` format which Putty uses. This blog will show you how to do it:
+
+
+
+1. The first step is to open **PuttyGen**, which is an accessory program of **Putty**. Then, choose `RSA` option (if not available, use `SSH-2(RSA)`), for **Parameters**.
+
+    ![blog11-1](/assets/blog11-1.PNG){:class="img-responsive"}
+
+
+2.  Click on **Load** to load an existing private key file. Go to the folder you keep the `.pem` file in. See files of all types by choosing **All Files(*.*)**. Select the `.pem` file and click Load.
+
+    ![blog11-2](/assets/blog11-2.png){:class="img-responsive"}
+
+
+3. Afterwards, the `.pem` key wil be succesfully imported and a Notice dialogue will show up. Click **OK**.
+
+    ![blog11-3](/assets/blog11-3.PNG){:class="img-responsive"}
+
+
+4. Select **Save Private Key**. It will ask you to enter the name of the newly imported `.ppk` key in order to save it. You should keep the name remain the same as the `.pem` file, and the program will automatically fill out the `.ppk` extension for you. Save it to your local computer.
+
+![blog11-4](/assets/blog11-4.PNG){:class="img-responsive"}
+
+
+Now that you have a `.ppk` key for Putty to connect to the instance, you can follow the instruction in [Blog 2 - SSH to your AWS EC2 Linux Instance with Putty](https://tinyvogon.github.io/blog/2020/09/18/Blog-2.html) to connect to your server.
+
+
