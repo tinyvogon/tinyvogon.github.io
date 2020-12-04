@@ -17,7 +17,7 @@ AWS RDS (Relational Database Service) is an extremely convenient database servic
 
 2.  Once the endpoint is obtained, open Microsoft SQL Management Studio and enter the endpoint url in **Server Name**. Choose **SQL Authentication** and input the credentials of the RDS master user. Then, click **Connect**.
 
-    ![blog12-2](/assets/blog12-2.png){:class="img-responsive"}
+    ![blog12-2](/assets/blog12-2.PNG){:class="img-responsive"}
 
 
 3. Afterwards, Microsoft SQL Management Studio will connect to your RDS SQL instance and you can start working with the RDS instance from your own local computer via SSMS.
