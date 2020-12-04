@@ -1,0 +1,28 @@
+---
+layout: post 
+title:  "Blog 12 - Connect to AWS RDS Microsoft SQL Server with Microsoft SQL Management Studio"
+date:   2020-12-04 18:34:18 -0700
+categories: blog
+---
+
+
+AWS RDS (Relational Database Service) is an extremely convenient database service offered by AWS to help us store and manage our database on the cloud. After creating it on the console or via the CLI, users can easily connect to the database instance with their usual database tools. This article will detail a simple method for users trying to connect to the RDS database instance that runs on Microsoft SQL Server via one of the most common SQL tool - Microsoft SQL Management Studio.
+
+
+
+1. The first step is to obtain the endpoint of the RDS database instance. One can go to the AWS console and get the endpoint/URL of the RDS instance.
+
+    ![blog12-1](/assets/blog12-1.PNG){:class="img-responsive"}
+
+
+2.  Once the endpoint is obtained, open Microsoft SQL Management Studio and enter the endpoint url in **Server Name**. Choose **SQL Authentication** and input the credentials of the RDS master user. Then, click **Connect**.
+
+    ![blog12-2](/assets/blog12-2.png){:class="img-responsive"}
+
+
+3. Afterwards, Microsoft SQL Management Studio will connect to your RDS SQL instance and you can start working with the RDS instance from your own local computer via SSMS.
+
+    ![blog12-3](/assets/blog12-3.PNG){:class="img-responsive"}
+
+
+
